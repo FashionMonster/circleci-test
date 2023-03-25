@@ -1,11 +1,16 @@
 version: 2.1
+
 jobs:
-  test_frontend:
+  say-hello:
     docker:
-      - image: circleci/node
-  steps:
-    - checkout
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: "Say hello"
+          command: "echo Hello, World!"
+
 workflows:
-  run_test:
+  say-hello-workflow:
     jobs:
-      - test_frontend
+      - say-hello
