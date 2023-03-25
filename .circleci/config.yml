@@ -5,8 +5,12 @@ jobs:
       - image: circleci/node
   steps:
     - checkout
-    - run: yarn install
+    - run:
+        name: Install dependency
+        command: yarn install
     - run: yarn test
+        name: Test
+        command: yarn test
 workflows:
   version: 2
   run_test:
